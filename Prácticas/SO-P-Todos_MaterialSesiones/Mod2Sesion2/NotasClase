@@ -1,0 +1,33 @@
+strtol --> pasar de str a long int.
+Cómo usar sprintf: sprintf(buff, "string a pasar");
+En caso de pasar una variable i, pondremos %i, pero si queremos reservar un espacio determinado de, por ejemplo, 10 caracteres, pondremos %10i, i) Con ese %10 dejamos 10 blancos, es decir pondrá si tenemos en i=12, pondrá 8 blancos y luego el 12.
+
+write (fd1, &i, sizeof(i)); Siendo i un número entero. También podemos poner sizeof(integer).
+%o pasa poner cosas en octal, como por ejemplo un mode_t
+
+Al poner la máscara a 0 con umask(0), si creamos un archivo se crean con esos permisos.
+
+Libro del autor STEVENS, W :"ADVANCED PROGRAMMING IN THE UNIX ENVIROMENT", pag 15.
+
+char ruta[256];
+DIR *dp;
+struct dirent *dirp;
+
+dp = opendir(argv[1]; (( Tratamientos de error.
+
+while((dirp=readdir(dp)) != NULL){
+	printf("Entrada de nombre %s\n", dirp->d_name);
+	//if (strcmp(drip-d_name,".") == 0)) //Es porque son iguales luego continuaríamos haciendo otras cosas.
+	strcpy(ruta,argv[1]);
+	strcmp(ruta,"/"); // Suponiendo que argv[1] Nunca tiene /
+	strcat(ruta,dirp->d_name);
+	chmod(ruta,....); //Los ... son el resto de argumentos.
+}
+
+Para uasr chomd hay que pasarle correctamente el nombre del archivo, para ello habría que concatenar la cadena de la sig forma: chmod(argv[1]/dirp->d_name,...);
+
+Para el ejercicio3:
+Una función que recibe una ruta a un directorio y que luego se llamará a sí mismo con la nueva ruta.
+Para comprobar los registros: stat(ruta, &atributos); Guardamos en atributos los permisos de ruta.
+
+nftw();
